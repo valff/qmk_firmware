@@ -4,7 +4,7 @@
 #include "version.h"
 
 enum custom_keycodes {
-  PLACEHOLDER = SAFE_RANGE, // can always be here
+  PLACEHOLDER = SAFE_RANGE,
   VRSN,
 };
 
@@ -23,11 +23,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  *   │  <   │  ?   │  $   │  #   │  "   │                                      │ BkSp │  :   │  -   │  +   │  >   │
  *   └──────┴──────┴──────┴──────┴──────┘                                      └──────┴──────┴──────┴──────┴──────┘
  *                                        ┌──────┬──────┐      ┌──────┬──────┐
- *                                        │LShift│  L2  │      │  L2  │RCtrl │
+ *                                        │ Meh  │  L2  │      │  L2  │RCtrl │
  *                                 ┌──────┼──────┼──────┤      ├──────┼──────┼──────┐
- *                                 │      │      │Hyper │      │ RAlt │      │      │
- *                                 │Space │ Left ├──────┤      ├──────┤Right │  L1  │
- *                                 │      │ Ctrl │ LAlt │      │ LGui │Shift │      │
+ *                                 │      │      │ LGui │      │Hyper │      │      │
+ *                                 │ Left │ Left ├──────┤      ├──────┤Space │  L1  │
+ *                                 │Shift │ Ctrl │ LAlt │      │ RAlt │      │      │
  *                                 └──────┴──────┴──────┘      └──────┴──────┴──────┘
  */
   [0] = LAYOUT_ergodox(
@@ -37,9 +37,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     KC_LPRN , KC_A    , KC_R    , KC_S    , KC_T    , KC_G    ,
     KC_LBRC , KC_Z    , KC_X    , KC_C    , KC_D    , KC_V    , KC_TAB  ,
     KC_LABK , KC_QUES , KC_DLR  , KC_HASH , KC_DQUO ,
-                                                      KC_LSFT , MO(2)   ,
-                                                                KC_HYPR ,
-                                            KC_SPC  , KC_LCTL , KC_LALT ,
+                                                      KC_MEH  , MO(2)   ,
+                                                                KC_LGUI ,
+                                            KC_LSFT , KC_LCTL , KC_LALT ,
     // right hand
     KC_PSCR , KC_BSLS , KC_SLSH , KC_EXLM , KC_ASTR , KC_PERC , KC_CIRC ,
     KC_ENT  , KC_J    , KC_L    , KC_U    , KC_Y    , KC_COMM , KC_RCBR ,
@@ -47,21 +47,21 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     KC_UNDS , KC_K    , KC_H    , KC_SCLN , KC_QUOT , KC_DOT  , KC_RBRC ,
                         KC_BSPC , KC_COLN , KC_MINS , KC_PLUS , KC_RABK ,
     MO(2)   , KC_RCTL ,
-    KC_RALT ,
-    KC_LGUI , KC_RSFT , MO(1)
+    KC_HYPR ,
+    KC_RALT , KC_SPC  , MO(1)
   ),
 /* Keymap 1: Numeric Layer
  *
  * ┌────────┬──────┬──────┬──────┬──────┬──────┬──────┐          ┌──────┬──────┬──────┬──────┬──────┬──────┬────────┐
- * │        │      │      │      │      │      │Insert│          │      │      │      │      │      │      │        │
+ * │   ``   │  `1  │  `2  │  `3  │  `4  │  `5  │Insert│          │ App  │  `\  │      │  `6  │      │  `7  │   `8   │
  * ├────────┼──────┼──────┼──────┼──────┼──────┼──────┤          ├──────┼──────┼──────┼──────┼──────┼──────┼────────┤
- * │        │      │ PgUp │  Up  │ PgDn │ App  │      │          │      │      │  7   │  8   │  9   │      │        │
+ * │   `-   │  `Q  │ PgUp │  Up  │ PgDn │  `B  │      │          │      │  `J  │  7   │  8   │  9   │      │   `=   │
  * ├────────╆━━━━━━╈━━━━━━╈━━━━━━╈━━━━━━╅──────┤      │          │      ├──────╆━━━━━━╈━━━━━━╈━━━━━━╈━━━━━━╅────────┤
- * │        ┃ Home ┃ Left ┃ Down ┃Right ┃ End  ├──────┤          ├──────┤  0   ┃  4   ┃  5   ┃  6   ┃      ┃        │
+ * │   `9   ┃ Home ┃ Left ┃ Down ┃Right ┃ End  ├──────┤          ├──────┤  0   ┃  4   ┃  5   ┃  6   ┃  `O  ┃   `0   │
  * ├────────╄━━━━━━╇━━━━━━╇━━━━━━╇━━━━━━╃──────┤      │          │      ├──────╄━━━━━━╇━━━━━━╇━━━━━━╇━━━━━━╃────────┤
- * │        │      │      │      │      │      │      │          │      │      │  1   │  2   │  3   │      │        │
+ * │   `[   │  `Z  │  `X  │  `C  │  `D  │  `V  │      │          │      │  `K  │  1   │  2   │  3   │      │   `]   │
  * └─┬──────┼──────┼──────┼──────┼──────┼──────┴──────┘          └──────┴──────┼──────┼──────┼──────┼──────┼──────┬─┘
- *   │      │      │      │      │      │                                      │      │      │      │      │      │
+ *   │  `,  │  `A  │  `'  │  `;  │  `/  │                                      │      │      │      │      │  `.  │
  *   └──────┴──────┴──────┴──────┴──────┘                                      └──────┴──────┴──────┴──────┴──────┘
  *                                        ┌──────┬──────┐      ┌──────┬──────┐
  *                                        │      │      │      │      │      │
@@ -73,20 +73,20 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  */
   [1] = LAYOUT_ergodox(
     // left hand
-    _______ , _______ , _______ , _______ , _______ , _______ , KC_INS  ,
-    _______ , _______ , KC_PGUP , KC_UP   , KC_PGDN , KC_APP  , _______ ,
-    _______ , KC_HOME , KC_LEFT , KC_DOWN , KC_RGHT , KC_END  ,
-    _______ , _______ , _______ , _______ , _______ , _______ , _______ ,
-    _______ , _______ , _______ , _______ , _______ ,
-                                                      _______ , _______ ,
-                                                                _______ ,
-                                            _______ , _______ , _______ ,
+    RGUI(KC_GRV)  , RGUI(KC_1) , RGUI(KC_2)    , RGUI(KC_3)    , RGUI(KC_4)    , RGUI(KC_5) , KC_INS  ,
+    RGUI(KC_MINS) , RGUI(KC_Q) , KC_PGUP       , KC_UP         , KC_PGDN       , RGUI(KC_B) , _______ ,
+    RGUI(KC_9)    , KC_HOME    , KC_LEFT       , KC_DOWN       , KC_RGHT       , KC_END     ,
+    RGUI(KC_LBRC) , RGUI(KC_Z) , RGUI(KC_X)    , RGUI(KC_C)    , RGUI(KC_D)    , RGUI(KC_V) , _______ ,
+    RGUI(KC_COMM) , RGUI(KC_A) , RGUI(KC_QUOT) , RGUI(KC_SCLN) , RGUI(KC_SLSH) ,
+                                                                                 _______    , _______ ,
+                                                                                              _______ ,
+                                                                 _______       , _______    , _______ ,
     // right hand
-    _______ , _______ , _______ , _______ , _______ , _______ , _______ ,
-    _______ , _______ , KC_7    , KC_8    , KC_9    , _______ , _______ ,
-              KC_0    , KC_4    , KC_5    , KC_6    , _______ , _______ ,
-    _______ , _______ , KC_1    , KC_2    , KC_3    , _______ , _______ ,
-                        _______ , _______ , _______ , _______ , _______ ,
+    KC_APP  , RGUI(KC_BSLS) , _______ , RGUI(KC_6) , _______ , RGUI(KC_7) , RGUI(KC_8)    ,
+    _______ , RGUI(KC_J)    , KC_7    , KC_8       , KC_9    , _______    , RGUI(KC_EQL)  ,
+              KC_0          , KC_4    , KC_5       , KC_6    , RGUI(KC_O) , RGUI(KC_0)    ,
+    _______ , RGUI(KC_K)    , KC_1    , KC_2       , KC_3    , _______    , RGUI(KC_RBRC) ,
+                              _______ , _______    , _______ , _______    , RGUI(KC_DOT)  ,
     _______ , _______ ,
     _______ ,
     _______ , _______ , _______
@@ -175,24 +175,6 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   ),
 };
 
-const macro_t *action_get_macro(keyrecord_t *record, uint8_t id, uint8_t opt)
-{
-  // MACRODOWN only works in this function
-  switch(id) {
-    case 0:
-      if (record->event.pressed) {
-        SEND_STRING (QMK_KEYBOARD "/" QMK_KEYMAP " @ " QMK_VERSION);
-      }
-      break;
-    case 1:
-      if (record->event.pressed) { // For resetting EEPROM
-        eeconfig_init();
-      }
-      break;
-  }
-  return MACRO_NONE;
-};
-
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
   switch (keycode) {
     case VRSN:
@@ -200,9 +182,9 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
         SEND_STRING (QMK_KEYBOARD "/" QMK_KEYMAP " @ " QMK_VERSION);
       }
       return false;
-      break;
+    default:
+      return true;
   }
-  return true;
 }
 
 // Runs just one time when the keyboard initializes.
