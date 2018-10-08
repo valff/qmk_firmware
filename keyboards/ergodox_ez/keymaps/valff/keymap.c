@@ -12,7 +12,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 /* Keymap 0: Basic layer
  *
  * ┌────────┬──────┬──────┬──────┬──────┬──────┬──────┐          ┌──────┬──────┬──────┬──────┬──────┬──────┬────────┐
- * │   ~    │  `   │  |   │  &   │  =   │  @   │ Del  │          │PrnScr│  \   │  /   │  !   │  *   │  %   │   ^    │
+ * │   <    │  ~   │  |   │  &   │  =   │  @   │ Del  │          │PrnScr│  \   │  /   │  !   │  *   │  %   │   >    │
  * ├────────┼──────┼──────┼──────┼──────┼──────┼──────┤          ├──────┼──────┼──────┼──────┼──────┼──────┼────────┤
  * │   {    │  Q   │  W   │  F   │  P   │  B   │      │          │      │  J   │  L   │  U   │  Y   │  ,   │   }    │
  * ├────────╆━━━━━━╈━━━━━━╈━━━━━━╈━━━━━━╅──────┤ Esc  │          │Enter ├──────╆━━━━━━╈━━━━━━╈━━━━━━╈━━━━━━╅────────┤
@@ -20,7 +20,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * ├────────╄━━━━━━╇━━━━━━╇━━━━━━╇━━━━━━╃──────┤      │          │      ├──────╄━━━━━━╇━━━━━━╇━━━━━━╇━━━━━━╃────────┤
  * │   [    │  Z   │  X   │  C   │  D   │  V   │ Tab  │          │  _   │  K   │  H   │  ;   │  '   │  .   │   ]    │
  * └─┬──────┼──────┼──────┼──────┼──────┼──────┴──────┘          └──────┴──────┼──────┼──────┼──────┼──────┼──────┬─┘
- *   │  <   │  ?   │  $   │  #   │  "   │                                      │ BkSp │  :   │  -   │  +   │  >   │
+ *   │  `   │  ?   │  $   │  #   │  "   │                                      │ BkSp │  :   │  -   │  +   │  ^   │
  *   └──────┴──────┴──────┴──────┴──────┘                                      └──────┴──────┴──────┴──────┴──────┘
  *                                        ┌──────┬──────┐      ┌──────┬──────┐
  *                                        │ Meh  │  L2  │      │  L2  │RCtrl │
@@ -32,20 +32,20 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  */
   [0] = LAYOUT_ergodox(
     // left hand
-    KC_TILD , KC_GRV  , KC_PIPE , KC_AMPR , KC_EQL  , KC_AT   , KC_DELT ,
+    KC_LABK , KC_TILD , KC_PIPE , KC_AMPR , KC_EQL  , KC_AT   , KC_DELT ,
     KC_LCBR , KC_Q    , KC_W    , KC_F    , KC_P    , KC_B    , KC_ESC  ,
     KC_LPRN , KC_A    , KC_R    , KC_S    , KC_T    , KC_G    ,
     KC_LBRC , KC_Z    , KC_X    , KC_C    , KC_D    , KC_V    , KC_TAB  ,
-    KC_LABK , KC_QUES , KC_DLR  , KC_HASH , KC_DQUO ,
+    KC_GRV  , KC_QUES , KC_DLR  , KC_HASH , KC_DQUO ,
                                                       KC_MEH  , MO(2)   ,
                                                                 KC_LGUI ,
                                             KC_LSFT , KC_LCTL , KC_LALT ,
     // right hand
-    KC_PSCR , KC_BSLS , KC_SLSH , KC_EXLM , KC_ASTR , KC_PERC , KC_CIRC ,
+    KC_PSCR , KC_BSLS , KC_SLSH , KC_EXLM , KC_ASTR , KC_PERC , KC_RABK ,
     KC_ENT  , KC_J    , KC_L    , KC_U    , KC_Y    , KC_COMM , KC_RCBR ,
               KC_M    , KC_N    , KC_E    , KC_I    , KC_O    , KC_RPRN ,
     KC_UNDS , KC_K    , KC_H    , KC_SCLN , KC_QUOT , KC_DOT  , KC_RBRC ,
-                        KC_BSPC , KC_COLN , KC_MINS , KC_PLUS , KC_RABK ,
+                        KC_BSPC , KC_COLN , KC_MINS , KC_PLUS , KC_CIRC ,
     MO(2)   , KC_RCTL ,
     KC_HYPR ,
     KC_RALT , KC_SPC  , MO(1)
