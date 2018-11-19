@@ -5,7 +5,6 @@
 
 enum custom_keycodes {
   VRSN = SAFE_RANGE,
-  RGB_SWI,
 };
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
@@ -23,11 +22,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  *   │  `   │  ?   │  $   │  #   │  "   │                                      │ BkSp │  :   │  +   │  !   │  ^   │
  *   └──────┴──────┴──────┴──────┴──────┘                                      └──────┴──────┴──────┴──────┴──────┘
  *                                        ┌──────┬──────┐      ┌──────┬──────┐
- *                                        │ Meh  │  L2  │      │  L2  │RCtrl │
+ *                                        │ Meh  │  L2  │      │  L2  │Hyper │
  *                                 ┌──────┼──────┼──────┤      ├──────┼──────┼──────┐
- *                                 │      │      │ LGui │      │Hyper │      │      │
+ *                                 │      │      │ LGui │      │ RAlt │      │      │
  *                                 │ Left │ Left ├──────┤      ├──────┤Space │  L1  │
- *                                 │Shift │ Ctrl │ LAlt │      │ RAlt │      │      │
+ *                                 │Shift │ Ctrl │ LAlt │      │ LGui │      │      │
  *                                 └──────┴──────┴──────┘      └──────┴──────┴──────┘
  */
   [0] = LAYOUT_ergodox(
@@ -46,9 +45,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
               KC_M    , KC_N    , KC_E    , KC_I    , KC_O    , KC_RPRN ,
     KC_UNDS , KC_K    , KC_H    , KC_SCLN , KC_QUOT , KC_DOT  , KC_RBRC ,
                         KC_BSPC , KC_COLN , KC_PLUS , KC_EXLM , KC_CIRC ,
-    MO(2)   , KC_RCTL ,
-    KC_HYPR ,
-    KC_RALT , KC_SPC  , MO(1)
+    MO(2)   , KC_HYPR ,
+    KC_RALT ,
+    KC_LGUI , KC_SPC  , MO(1)
   ),
 /* Keymap 1: Numeric Layer
  *
@@ -64,7 +63,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  *   │  `,  │  `A  │  `'  │  `;  │  `/  │                                      │      │      │      │  `8  │  `.  │
  *   └──────┴──────┴──────┴──────┴──────┘                                      └──────┴──────┴──────┴──────┴──────┘
  *                                        ┌──────┬──────┐      ┌──────┬──────┐
- *                                        │      │      │      │      │      │
+ *                                        │      │  L3  │      │  L3  │      │
  *                                 ┌──────┼──────┼──────┤      ├──────┼──────┼──────┐
  *                                 │      │      │      │      │      │      │      │
  *                                 │      │      ├──────┤      ├──────┤      │      │
@@ -78,7 +77,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     RGUI(KC_9)    , KC_HOME    , KC_LEFT       , KC_DOWN       , KC_RGHT       , KC_END     ,
     RGUI(KC_LBRC) , RGUI(KC_Z) , RGUI(KC_X)    , RGUI(KC_C)    , RGUI(KC_D)    , RGUI(KC_V) , _______ ,
     RGUI(KC_COMM) , RGUI(KC_A) , RGUI(KC_QUOT) , RGUI(KC_SCLN) , RGUI(KC_SLSH) ,
-                                                                                 _______    , _______ ,
+                                                                                 _______    , MO(3)   ,
                                                                                               _______ ,
                                                                  _______       , _______    , _______ ,
     // right hand
@@ -87,50 +86,50 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
               KC_0          , KC_4    , KC_5    , KC_6    , RGUI(KC_O) , RGUI(KC_0)    ,
     _______ , RGUI(KC_K)    , KC_1    , KC_2    , KC_3    , _______    , RGUI(KC_RBRC) ,
                               _______ , _______ , _______ , RGUI(KC_8) , RGUI(KC_DOT)  ,
-    _______ , _______ ,
+    MO(3)   , _______ ,
     _______ ,
     _______ , _______ , _______
   ),
 /* Keymap 2: Functional Layer
  *
  * ┌────────┬──────┬──────┬──────┬──────┬──────┬──────┐          ┌──────┬──────┬──────┬──────┬──────┬──────┬────────┐
- * │  Calc  │Versn │      │ Mclk │      │      │ Mute │          │ Play │Player│ F10  │ F11  │ F12  │Reset │ Power  │
+ * │  Calc  │MyComp│      │ Mclk │      │      │ Mute │          │ Play │ Stop │ F10  │ F11  │ F12  │      │ Power  │
  * ├────────┼──────┼──────┼──────┼──────┼──────┼──────┤          ├──────┼──────┼──────┼──────┼──────┼──────┼────────┤
- * │ MyComp │      │ Lclk │ MsUp │ Rclk │ WhUp │Volume│          │      │ Stop │  F7  │  F8  │  F9  │      │ Sleep  │
+ * │WWWHome │      │ Lclk │ MsUp │ Rclk │ WhUp │Volume│          │      │Eject │  F7  │  F8  │  F9  │      │ Sleep  │
  * ├────────╆━━━━━━╈━━━━━━╈━━━━━━╈━━━━━━╅──────┤  Up  │          │ Prev ├──────╆━━━━━━╈━━━━━━╈━━━━━━╈━━━━━━╅────────┤
- * │  Mail  ┃WhLeft┃MsLeft┃MsDown┃MsRght┃WhRght├──────┤          ├──────┤Eject ┃  F4  ┃  F5  ┃  F6  ┃      ┃ Pause  │
+ * │  Mail  ┃WhLeft┃MsLeft┃MsDown┃MsRght┃WhRght├──────┤          ├──────┤      ┃  F4  ┃  F5  ┃  F6  ┃      ┃  Wake  │
  * ├────────╄━━━━━━╇━━━━━━╇━━━━━━╇━━━━━━╃──────┤Volume│          │      ├──────╄━━━━━━╇━━━━━━╇━━━━━━╇━━━━━━╃────────┤
- * │   L3   │      │Accel0│Accel1│Accel2│WhDown│ Down │          │ Next │      │  F1  │  F2  │  F3  │      │   L3   │
+ * │ Player │      │Accel0│Accel1│Accel2│WhDown│ Down │          │ Next │      │  F1  │  F2  │  F3  │      │ Pause  │
  * └─┬──────┼──────┼──────┼──────┼──────┼──────┴──────┘          └──────┴──────┼──────┼──────┼──────┼──────┼──────┬─┘
- *   │      │      │CpsLck│NumLck│SclLck│                                      │      │      │      │      │      │
+ *   │Versn │      │CpsLck│NumLck│SclLck│                                      │      │      │      │      │Reset │
  *   └──────┴──────┴──────┴──────┴──────┘                                      └──────┴──────┴──────┴──────┴──────┘
  *                                        ┌──────┬──────┐      ┌──────┬──────┐
  *                                        │      │      │      │      │      │
  *                                 ┌──────┼──────┼──────┤      ├──────┼──────┼──────┐
  *                                 │      │      │      │      │      │      │      │
- *                                 │      │      ├──────┤      ├──────┤      │      │
+ *                                 │      │      ├──────┤      ├──────┤      │  L3  │
  *                                 │      │      │      │      │      │      │      │
  *                                 └──────┴──────┴──────┘      └──────┴──────┴──────┘
  */
   [2] = LAYOUT_ergodox(
     // left hand
-    KC_CALC , VRSN    , _______ , KC_BTN3 , _______ , _______ , KC_MUTE  ,
-    KC_MYCM , _______ , KC_BTN1 , KC_MS_U , KC_BTN2 , KC_WH_U , KC_VOLU  ,
+    KC_CALC , KC_MYCM , _______ , KC_BTN3 , _______ , _______ , KC_MUTE  ,
+    KC_WHOM , _______ , KC_BTN1 , KC_MS_U , KC_BTN2 , KC_WH_U , KC_VOLU  ,
     KC_MAIL , KC_WH_L , KC_MS_L , KC_MS_D , KC_MS_R , KC_WH_R ,
-    TG(3)   , _______ , KC_ACL0 , KC_ACL1 , KC_ACL2 , KC_WH_D , KC_VOLD  ,
-    _______ , _______ , KC_CLCK , KC_NLCK , KC_SLCK ,
+    KC_MSEL , _______ , KC_ACL0 , KC_ACL1 , KC_ACL2 , KC_WH_D , KC_VOLD  ,
+    VRSN    , _______ , KC_CLCK , KC_NLCK , KC_SLCK ,
                                                       _______ , _______  ,
                                                                 _______  ,
                                             _______ , _______ , _______  ,
     // right hand
-    KC_MPLY , KC_MSEL , KC_F10  , KC_F11  , KC_F12  , RESET   , KC_PWR  ,
-    KC_MPRV , KC_MSTP , KC_F7   , KC_F8   , KC_F9   , _______ , KC_SLEP ,
-              KC_EJCT , KC_F4   , KC_F5   , KC_F6   , _______ , KC_PAUS ,
-    KC_MNXT , _______ , KC_F1   , KC_F2   , KC_F3   , _______ , TG(3)   ,
-                        _______ , _______ , _______ , _______ , _______ ,
+    KC_MPLY , KC_MSTP , KC_F10  , KC_F11  , KC_F12  , _______ , KC_PWR  ,
+    KC_MPRV , KC_EJCT , KC_F7   , KC_F8   , KC_F9   , _______ , KC_SLEP ,
+              _______ , KC_F4   , KC_F5   , KC_F6   , _______ , KC_WAKE ,
+    KC_MNXT , _______ , KC_F1   , KC_F2   , KC_F3   , _______ , KC_PAUS ,
+                        _______ , _______ , _______ , _______ , RESET   ,
     _______ , _______ ,
     _______ ,
-    _______ , _______ , _______
+    _______ , _______ , MO(3)
   ),
 /* Keymap 3: Numpad Layer
  *
@@ -141,7 +140,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * ├────────╆━━━━━━╈━━━━━━╈━━━━━━╈━━━━━━╅──────┤ness+ │          │Enter ├──────╆━━━━━━╈━━━━━━╈━━━━━━╈━━━━━━╅────────┤
  * │  Hue-  ┃ Sat- ┃RgbMo4┃RgbMo5┃RgbMo6┃RgbRev├──────┤          ├──────┤  0   ┃  4   ┃  5   ┃  6   ┃      ┃        │
  * ├────────╄━━━━━━╇━━━━━━╇━━━━━━╇━━━━━━╃──────┤Bright│          │      ├──────╄━━━━━━╇━━━━━━╇━━━━━━╇━━━━━━╃────────┤
- * │   L3   │      │RgbMo1│RgbMo2│RgbMo3│      │ness- │          │      │      │  1   │  2   │  3   │  .   │   L3   │
+ * │        │      │RgbMo1│RgbMo2│RgbMo3│      │ness- │          │      │      │  1   │  2   │  3   │  .   │        │
  * └─┬──────┼──────┼──────┼──────┼──────┼──────┴──────┘          └──────┴──────┼──────┼──────┼──────┼──────┼──────┬─┘
  *   │      │      │CpsLck│NumLck│SclLck│                                      │      │      │  +   │      │      │
  *   └──────┴──────┴──────┴──────┴──────┘                                      └──────┴──────┴──────┴──────┴──────┘
@@ -155,10 +154,10 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  */
   [3] = LAYOUT_ergodox(
     // left hand
-    RGB_SWI , _______ , _______  , _______  , KC_PEQL  , _______  , RGB_M_P ,
+    RGB_TOG , _______ , _______  , _______  , KC_PEQL  , _______  , RGB_M_P ,
     RGB_HUI , RGB_SAI , RGB_M_X  , RGB_M_G  , RGB_M_T  , RGB_MOD  , RGB_VAI ,
     RGB_HUD , RGB_SAD , RGB_M_SW , RGB_M_SN , RGB_M_K  , RGB_RMOD ,
-    TG(3)   , _______ , RGB_M_P  , RGB_M_B  , RGB_M_R  , _______  , RGB_VAD ,
+    _______ , _______ , RGB_M_P  , RGB_M_B  , RGB_M_R  , _______  , RGB_VAD ,
     _______ , _______ , KC_CLCK  , KC_NLCK  , KC_SLCK  ,
                                                          _______  , _______ ,
                                                                     _______ ,
@@ -167,7 +166,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     _______ , _______ , KC_PSLS , KC_PMNS , KC_PAST , _______ , _______ ,
     KC_PENT , _______ , KC_P7   , KC_P8   , KC_P9   , KC_PCMM , _______ ,
               KC_P0   , KC_P4   , KC_P5   , KC_P6   , _______ , _______ ,
-    _______ , _______ , KC_P1   , KC_P2   , KC_P3   , KC_PDOT , TG(3)   ,
+    _______ , _______ , KC_P1   , KC_P2   , KC_P3   , KC_PDOT , _______ ,
                         _______ , _______ , KC_PPLS , _______ , _______ ,
     _______ , _______ ,
     _______ ,
@@ -182,12 +181,6 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
         SEND_STRING(QMK_KEYBOARD "/" QMK_KEYMAP " @ " QMK_VERSION);
       }
       return false;
-    case RGB_SWI:
-      if (record->event.pressed) {
-        rgblight_toggle();
-        layer_off(3);
-      }
-      return false;
     default:
       return true;
   }
@@ -195,9 +188,6 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 
 // Runs just one time when the keyboard initializes.
 void matrix_init_user(void) {
-#ifdef RGBLIGHT_COLOR_LAYER_0
-  rgblight_setrgb(RGBLIGHT_COLOR_LAYER_0);
-#endif
 };
 
 // Runs constantly in the background, in a loop.
@@ -214,60 +204,19 @@ uint32_t layer_state_set_user(uint32_t state) {
   uint8_t layer = biton32(state);
   switch (layer) {
     case 0:
-      #ifdef RGBLIGHT_COLOR_LAYER_0
-        rgblight_setrgb(RGBLIGHT_COLOR_LAYER_0);
-      #else
-      #ifdef RGBLIGHT_ENABLE
-        rgblight_init();
-      #endif
-      #endif
+      rgblight_init();
       break;
     case 1:
       ergodox_right_led_1_on();
-      #ifdef RGBLIGHT_COLOR_LAYER_1
-        rgblight_setrgb(RGBLIGHT_COLOR_LAYER_1);
-      #endif
+      rgblight_init();
       break;
     case 2:
       ergodox_right_led_2_on();
-      #ifdef RGBLIGHT_COLOR_LAYER_2
-        rgblight_setrgb(RGBLIGHT_COLOR_LAYER_2);
-      #endif
+      rgblight_init();
       break;
     case 3:
       ergodox_right_led_3_on();
-      #ifdef RGBLIGHT_COLOR_LAYER_3
-        rgblight_setrgb(RGBLIGHT_COLOR_LAYER_3);
-      #endif
-      break;
-    case 4:
-      ergodox_right_led_1_on();
-      ergodox_right_led_2_on();
-      #ifdef RGBLIGHT_COLOR_LAYER_4
-        rgblight_setrgb(RGBLIGHT_COLOR_LAYER_4);
-      #endif
-      break;
-    case 5:
-      ergodox_right_led_1_on();
-      ergodox_right_led_3_on();
-      #ifdef RGBLIGHT_COLOR_LAYER_5
-        rgblight_setrgb(RGBLIGHT_COLOR_LAYER_5);
-      #endif
-      break;
-    case 6:
-      ergodox_right_led_2_on();
-      ergodox_right_led_3_on();
-      #ifdef RGBLIGHT_COLOR_LAYER_6
-        rgblight_setrgb(RGBLIGHT_COLOR_LAYER_6);
-      #endif
-      break;
-    case 7:
-      ergodox_right_led_1_on();
-      ergodox_right_led_2_on();
-      ergodox_right_led_3_on();
-      #ifdef RGBLIGHT_COLOR_LAYER_7
-        rgblight_setrgb(RGBLIGHT_COLOR_LAYER_6);
-      #endif
+      rgblight_setrgb(0x00, 0x00, 0xFF);
       break;
     default:
       break;
