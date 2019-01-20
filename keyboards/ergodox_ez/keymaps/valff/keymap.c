@@ -11,7 +11,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 /* Keymap 0: Basic layer
  *
  * ┌────────┬──────┬──────┬──────┬──────┬──────┬──────┐          ┌──────┬──────┬──────┬──────┬──────┬──────┬────────┐
- * │   <    │  ~   │  |   │  &   │  =   │  @   │ Del  │          │PrnScr│  \   │  /   │  -   │  *   │  %   │   >    │
+ * │   <    │  ~   │  |   │  &   │  =   │  @   │ Del  │          │Insert│  \   │  /   │  -   │  *   │  %   │   >    │
  * ├────────┼──────┼──────┼──────┼──────┼──────┼──────┤          ├──────┼──────┼──────┼──────┼──────┼──────┼────────┤
  * │   {    │  Q   │  W   │  F   │  P   │  B   │      │          │      │  J   │  L   │  U   │  Y   │  ,   │   }    │
  * ├────────╆━━━━━━╈━━━━━━╈━━━━━━╈━━━━━━╅──────┤ Esc  │          │Enter ├──────╆━━━━━━╈━━━━━━╈━━━━━━╈━━━━━━╅────────┤
@@ -22,11 +22,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  *   │  `   │  ?   │  $   │  #   │  "   │                                      │  _   │  :   │  +   │  !   │  ^   │
  *   └──────┴──────┴──────┴──────┴──────┘                                      └──────┴──────┴──────┴──────┴──────┘
  *                                        ┌──────┬──────┐      ┌──────┬──────┐
- *                                        │ Meh  │  L2  │      │  L2  │Hyper │
+ *                                        │  L1  │  L2  │      │  L2  │PrnScr│
  *                                 ┌──────┼──────┼──────┤      ├──────┼──────┼──────┐
- *                                 │      │      │ LGui │      │ RAlt │      │      │
- *                                 │ Left │ Left ├──────┤      ├──────┤Space │  L1  │
- *                                 │Shift │ Ctrl │ LAlt │      │ LGui │      │      │
+ *                                 │      │      │RShift│      │Hyper │      │      │
+ *                                 │ Left │ Left ├──────┤      ├──────┤ Left │  L1  │
+ *                                 │Shift │ Ctrl │ LGui │      │Space │ Alt  │      │
  *                                 └──────┴──────┴──────┘      └──────┴──────┴──────┘
  */
   [0] = LAYOUT_ergodox(
@@ -36,23 +36,23 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     KC_LPRN , KC_A    , KC_R    , KC_S    , KC_T    , KC_G    ,
     KC_LBRC , KC_Z    , KC_X    , KC_C    , KC_D    , KC_V    , KC_TAB  ,
     KC_GRV  , KC_QUES , KC_DLR  , KC_HASH , KC_DQUO ,
-                                                      KC_MEH  , MO(2)   ,
-                                                                KC_LGUI ,
-                                            KC_LSFT , KC_LCTL , KC_LALT ,
+                                                      MO(1)   , MO(2)   ,
+                                                                KC_RSFT ,
+                                            KC_LSFT , KC_LCTL , KC_LGUI ,
     // right hand
-    KC_PSCR , KC_BSLS , KC_SLSH , KC_MINS , KC_ASTR , KC_PERC , KC_RABK ,
+    KC_INS  , KC_BSLS , KC_SLSH , KC_MINS , KC_ASTR , KC_PERC , KC_RABK ,
     KC_ENT  , KC_J    , KC_L    , KC_U    , KC_Y    , KC_COMM , KC_RCBR ,
               KC_M    , KC_N    , KC_E    , KC_I    , KC_O    , KC_RPRN ,
     KC_BSPC , KC_K    , KC_H    , KC_SCLN , KC_QUOT , KC_DOT  , KC_RBRC ,
                         KC_UNDS , KC_COLN , KC_PLUS , KC_EXLM , KC_CIRC ,
-    MO(2)   , KC_HYPR ,
-    KC_RALT ,
-    KC_LGUI , KC_SPC  , MO(1)
+    MO(2)   , KC_PSCR ,
+    KC_HYPR ,
+    KC_SPC  , KC_LALT , MO(1)
   ),
 /* Keymap 1: Numeric Layer
  *
  * ┌────────┬──────┬──────┬──────┬──────┬──────┬──────┐          ┌──────┬──────┬──────┬──────┬──────┬──────┬────────┐
- * │   ``   │  `1  │  `2  │  `3  │  `4  │  `5  │Insert│          │ App  │  `6  │      │      │      │  `7  │   `8   │
+ * │   ``   │  `1  │  `2  │  `3  │  `4  │  `5  │      │          │      │  `6  │      │      │      │  `7  │   `8   │
  * ├────────┼──────┼──────┼──────┼──────┼──────┼──────┤          ├──────┼──────┼──────┼──────┼──────┼──────┼────────┤
  * │   `-   │  `Q  │ PgUp │  Up  │ PgDn │  `B  │      │          │      │  `J  │  7   │  8   │  9   │      │   `=   │
  * ├────────╆━━━━━━╈━━━━━━╈━━━━━━╈━━━━━━╅──────┤      │          │      ├──────╆━━━━━━╈━━━━━━╈━━━━━━╈━━━━━━╅────────┤
@@ -63,7 +63,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  *   │  `,  │  `/  │  `'  │  `;  │  `A  │                                      │      │      │      │  `\  │  `.  │
  *   └──────┴──────┴──────┴──────┴──────┘                                      └──────┴──────┴──────┴──────┴──────┘
  *                                        ┌──────┬──────┐      ┌──────┬──────┐
- *                                        │      │  L3  │      │  L3  │      │
+ *                                        │      │  L3  │      │  L3  │ App  │
  *                                 ┌──────┼──────┼──────┤      ├──────┼──────┼──────┐
  *                                 │      │      │      │      │      │      │      │
  *                                 │      │      ├──────┤      ├──────┤      │      │
@@ -72,7 +72,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  */
   [1] = LAYOUT_ergodox(
     // left hand
-    RGUI(KC_GRV)  , RGUI(KC_1)    , RGUI(KC_2)    , RGUI(KC_3)    , RGUI(KC_4) , RGUI(KC_5) , KC_INS  ,
+    RGUI(KC_GRV)  , RGUI(KC_1)    , RGUI(KC_2)    , RGUI(KC_3)    , RGUI(KC_4) , RGUI(KC_5) , _______ ,
     RGUI(KC_MINS) , RGUI(KC_Q)    , KC_PGUP       , KC_UP         , KC_PGDN    , RGUI(KC_B) , _______ ,
     RGUI(KC_9)    , KC_HOME       , KC_LEFT       , KC_DOWN       , KC_RGHT    , KC_END     ,
     RGUI(KC_LBRC) , RGUI(KC_Z)    , RGUI(KC_X)    , RGUI(KC_C)    , RGUI(KC_D) , RGUI(KC_V) , _______ ,
@@ -81,12 +81,12 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                                                                                               _______ ,
                                                                     _______    , _______    , _______ ,
     // right hand
-    KC_APP  , RGUI(KC_6) , _______ , _______ , _______ , RGUI(KC_7)    , RGUI(KC_8)    ,
+    _______ , RGUI(KC_6) , _______ , _______ , _______ , RGUI(KC_7)    , RGUI(KC_8)    ,
     _______ , RGUI(KC_J) , KC_7    , KC_8    , KC_9    , _______       , RGUI(KC_EQL)  ,
               KC_0       , KC_4    , KC_5    , KC_6    , RGUI(KC_O)    , RGUI(KC_0)    ,
     _______ , RGUI(KC_K) , KC_1    , KC_2    , KC_3    , _______       , RGUI(KC_RBRC) ,
                            _______ , _______ , _______ , RGUI(KC_BSLS) , RGUI(KC_DOT)  ,
-    MO(3)   , _______    ,
+    MO(3)   , KC_APP     ,
     _______ ,
     _______ , _______    , _______
   ),
@@ -104,7 +104,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  *   │Versn │      │CpsLck│NumLck│SclLck│                                      │      │      │      │      │Reset │
  *   └──────┴──────┴──────┴──────┴──────┘                                      └──────┴──────┴──────┴──────┴──────┘
  *                                        ┌──────┬──────┐      ┌──────┬──────┐
- *                                        │      │      │      │      │      │
+ *                                        │  L3  │      │      │      │Toggle│
  *                                 ┌──────┼──────┼──────┤      ├──────┼──────┼──────┐
  *                                 │      │      │      │      │      │      │      │
  *                                 │      │      ├──────┤      ├──────┤      │  L3  │
@@ -118,7 +118,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     _______ , KC_WH_L , KC_MS_L , KC_MS_D , KC_MS_R , KC_WH_R ,
     _______ , _______ , KC_ACL0 , KC_ACL1 , KC_ACL2 , KC_WH_D , KC_VOLD  ,
     VRSN    , _______ , KC_CLCK , KC_NLCK , KC_SLCK ,
-                                                      _______ , _______  ,
+                                                      MO(3)   , _______  ,
                                                                 _______  ,
                                             _______ , _______ , _______  ,
     // right hand
@@ -127,14 +127,14 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
               _______ , KC_F4   , KC_F5   , KC_F6   , _______ , KC_WAKE ,
     KC_MNXT , _______ , KC_F1   , KC_F2   , KC_F3   , _______ , KC_PAUS ,
                         _______ , _______ , _______ , _______ , RESET   ,
-    _______ , _______ ,
+    _______ , RGB_TOG ,
     _______ ,
     _______ , _______ , MO(3)
   ),
 /* Keymap 3: Numpad Layer
  *
  * ┌────────┬──────┬──────┬──────┬──────┬──────┬──────┐          ┌──────┬──────┬──────┬──────┬──────┬──────┬────────┐
- * │ Toggle │      │      │      │  =   │      │Static│          │      │      │  /   │  -   │  *   │      │        │
+ * │        │      │      │      │  =   │      │Static│          │      │      │  /   │  -   │  *   │      │        │
  * ├────────┼──────┼──────┼──────┼──────┼──────┼──────┤          ├──────┼──────┼──────┼──────┼──────┼──────┼────────┤
  * │  Hue+  │ Sat+ │RgbMo7│RgbMo8│RgbMo9│RgbFor│Bright│          │      │      │  7   │  8   │  9   │  ,   │        │
  * ├────────╆━━━━━━╈━━━━━━╈━━━━━━╈━━━━━━╅──────┤ness+ │          │Enter ├──────╆━━━━━━╈━━━━━━╈━━━━━━╈━━━━━━╅────────┤
@@ -154,7 +154,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  */
   [3] = LAYOUT_ergodox(
     // left hand
-    RGB_TOG , _______ , _______  , _______  , KC_PEQL  , _______  , RGB_M_P ,
+    _______ , _______ , _______  , _______  , KC_PEQL  , _______  , RGB_M_P ,
     RGB_HUI , RGB_SAI , RGB_M_X  , RGB_M_G  , RGB_M_T  , RGB_MOD  , RGB_VAI ,
     RGB_HUD , RGB_SAD , RGB_M_SW , RGB_M_SN , RGB_M_K  , RGB_RMOD ,
     _______ , _______ , RGB_M_P  , RGB_M_B  , RGB_M_R  , _______  , RGB_VAD ,
