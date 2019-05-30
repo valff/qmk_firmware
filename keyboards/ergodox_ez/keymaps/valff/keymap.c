@@ -204,15 +204,15 @@ uint32_t layer_state_set_user(uint32_t state) {
   uint8_t layer = biton32(state);
   switch (layer) {
     case 0:
-      rgblight_init();
+      rgblight_update_dword(rgblight_read_dword());
       break;
     case 1:
       ergodox_right_led_1_on();
-      rgblight_init();
+      rgblight_update_dword(rgblight_read_dword());
       break;
     case 2:
       ergodox_right_led_2_on();
-      rgblight_init();
+      rgblight_update_dword(rgblight_read_dword());
       break;
     case 3:
       ergodox_right_led_3_on();
