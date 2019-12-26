@@ -46,13 +46,13 @@
 #define L_FUNC 2
 /*
  * ┌────────┬──────┬──────┬──────┬──────┬──────┬──────┐          ┌──────┬──────┬──────┬──────┬──────┬──────┬────────┐
- * │        │      │      │ Mclk │      │      │ Mute │          │ Play │ Stop │ F10  │ F11  │ F12  │      │ Power  │
+ * │        │      │WhLeft│      │WhRght│      │ Mute │          │ Play │ Stop │ F10  │ F11  │ F12  │      │ Power  │
  * ├────────┼──────┼──────┼──────┼──────┼──────┼──────┤          ├──────┼──────┼──────┼──────┼──────┼──────┼────────┤
- * │        │      │ Lclk │ MsUp │ Rclk │ WhUp │Volume│          │      │      │  F7  │  F8  │  F9  │      │ Sleep  │
+ * │        │ Rclk │ WhUp │ MsUp │WhDown│      │Volume│          │      │      │  F7  │  F8  │  F9  │      │ Sleep  │
  * ├────────╆━━━━━━╈━━━━━━╈━━━━━━╈━━━━━━╅──────┤  Up  │          │ Prev ├──────╆━━━━━━╈━━━━━━╈━━━━━━╈━━━━━━╅────────┤
- * │        ┃WhLeft┃MsLeft┃MsDown┃MsRght┃WhRght├──────┤          ├──────┤      ┃  F4  ┃  F5  ┃  F6  ┃      ┃  Wake  │
+ * │        ┃ Lclk ┃MsLeft┃MsDown┃MsRght┃      ├──────┤          ├──────┤      ┃  F4  ┃  F5  ┃  F6  ┃      ┃  Wake  │
  * ├────────╄━━━━━━╇━━━━━━╇━━━━━━╇━━━━━━╃──────┤Volume│          │      ├──────╄━━━━━━╇━━━━━━╇━━━━━━╇━━━━━━╃────────┤
- * │        │      │Accel0│Accel1│Accel2│WhDown│ Down │          │ Next │      │  F1  │  F2  │  F3  │      │ Pause  │
+ * │        │ Mclk │Accel0│Accel1│Accel2│      │ Down │          │ Next │      │  F1  │  F2  │  F3  │      │ Pause  │
  * └─┬──────┼──────┼──────┼──────┼──────┼──────┴──────┘          └──────┴──────┼──────┼──────┼──────┼──────┼──────┬─┘
  *   │Versn │      │CpsLck│NumLck│SclLck│                                      │      │      │      │      │Reset │
  *   └──────┴──────┴──────┴──────┴──────┘                                      └──────┴──────┴──────┴──────┴──────┘
@@ -67,13 +67,13 @@
 #define L_NPAD 3
 /*
  * ┌────────┬──────┬──────┬──────┬──────┬──────┬──────┐          ┌──────┬──────┬──────┬──────┬──────┬──────┬────────┐
- * │        │      │      │      │  =   │      │Static│          │      │      │  /   │  -   │  *   │      │        │
+ * │  Sat+  │      │      │      │  =   │      │      │          │      │      │  /   │  -   │  *   │      │        │
  * ├────────┼──────┼──────┼──────┼──────┼──────┼──────┤          ├──────┼──────┼──────┼──────┼──────┼──────┼────────┤
- * │  Hue+  │ Sat+ │RgbMo7│RgbMo8│RgbMo9│RgbFor│Bright│          │      │      │  7   │  8   │  9   │  ,   │        │
- * ├────────╆━━━━━━╈━━━━━━╈━━━━━━╈━━━━━━╅──────┤ness+ │          │Enter ├──────╆━━━━━━╈━━━━━━╈━━━━━━╈━━━━━━╅────────┤
- * │  Hue-  ┃ Sat- ┃RgbMo4┃RgbMo5┃RgbMo6┃RgbRev├──────┤          ├──────┤  0   ┃  4   ┃  5   ┃  6   ┃      ┃        │
- * ├────────╄━━━━━━╇━━━━━━╇━━━━━━╇━━━━━━╃──────┤Bright│          │      ├──────╄━━━━━━╇━━━━━━╇━━━━━━╇━━━━━━╃────────┤
- * │        │      │RgbMo1│RgbMo2│RgbMo3│      │ness- │          │      │      │  1   │  2   │  3   │  .   │        │
+ * │  Hue+  │      │      │      │      │      │Shine │          │      │      │  7   │  8   │  9   │  ,   │        │
+ * ├────────╆━━━━━━╈━━━━━━╈━━━━━━╈━━━━━━╅──────┤ High │          │Enter ├──────╆━━━━━━╈━━━━━━╈━━━━━━╈━━━━━━╅────────┤
+ * │  Hue-  ┃      ┃      ┃      ┃      ┃      ├──────┤          ├──────┤  0   ┃  4   ┃  5   ┃  6   ┃      ┃        │
+ * ├────────╄━━━━━━╇━━━━━━╇━━━━━━╇━━━━━━╃──────┤Shine │          │      ├──────╄━━━━━━╇━━━━━━╇━━━━━━╇━━━━━━╃────────┤
+ * │  Sat-  │      │      │      │      │      │ Low  │          │      │      │  1   │  2   │  3   │  .   │        │
  * └─┬──────┼──────┼──────┼──────┼──────┼──────┴──────┘          └──────┴──────┼──────┼──────┼──────┼──────┼──────┬─┘
  *   │      │      │CpsLck│NumLck│SclLck│                                      │      │      │  +   │      │      │
  *   └──────┴──────┴──────┴──────┴──────┘                                      └──────┴──────┴──────┴──────┴──────┘
@@ -86,9 +86,7 @@
  *                                 └──────┴──────┴──────┘      └──────┴──────┴──────┘
  */
 
-enum custom_keycodes {
-    VRSN = SAFE_RANGE,
-};
+enum custom_keycodes { VRSN = SAFE_RANGE, SHINE_H, SHINE_L };
 
 /* clang-format off */
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
@@ -131,10 +129,10 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         _______ , _______    , _______
     ),
     [L_FUNC] = LAYOUT_ergodox(
-        _______ , _______ , _______ , KC_BTN3 , _______ , _______ , KC_MUTE    ,
-        _______ , _______ , KC_BTN1 , KC_MS_U , KC_BTN2 , KC_WH_U , KC_VOLU    ,
-        _______ , KC_WH_L , KC_MS_L , KC_MS_D , KC_MS_R , KC_WH_R ,
-        _______ , _______ , KC_ACL0 , KC_ACL1 , KC_ACL2 , KC_WH_D , KC_VOLD    ,
+        _______ , _______ , KC_WH_L , _______ , KC_WH_R , _______ , KC_MUTE    ,
+        _______ , KC_BTN2 , KC_WH_U , KC_MS_U , KC_WH_D , _______ , KC_VOLU    ,
+        _______ , KC_BTN1 , KC_MS_L , KC_MS_D , KC_MS_R , _______ ,
+        _______ , KC_BTN3 , KC_ACL0 , KC_ACL1 , KC_ACL2 , _______ , KC_VOLD    ,
         VRSN    , _______ , KC_CLCK , KC_NLCK , KC_SLCK ,
                                                           _______ , MO(L_NPAD) ,
                                                                     _______    ,
@@ -150,11 +148,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         _______ , _______ , MO(L_NPAD)
     ),
     [L_NPAD] = LAYOUT_ergodox(
-        _______ , _______ , _______  , _______  , KC_PEQL  , _______  , RGB_M_P ,
-        RGB_HUI , RGB_SAI , RGB_M_X  , RGB_M_G  , RGB_M_T  , RGB_MOD  , RGB_VAI ,
-        RGB_HUD , RGB_SAD , RGB_M_SW , RGB_M_SN , RGB_M_K  , RGB_RMOD ,
-        _______ , _______ , RGB_M_P  , RGB_M_B  , RGB_M_R  , _______  , RGB_VAD ,
-        _______ , _______ , KC_CLCK  , KC_NLCK  , KC_SLCK  ,
+        RGB_SAI , _______ , _______ , _______ , KC_PEQL  , _______ , _______ ,
+        RGB_HUI , _______ , _______ , _______ , _______  , _______ , SHINE_H ,
+        RGB_HUD , _______ , _______ , _______ , _______  , _______ ,
+        RGB_SAD , _______ , _______ , _______ , _______  , _______ , SHINE_L ,
+        _______ , _______ , KC_CLCK , KC_NLCK , KC_SLCK  ,
                                                              _______  , _______ ,
                                                                         _______ ,
                                                   _______  , _______  , _______ ,
@@ -171,44 +169,71 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 };
 /* clang-format on */
 
+#define VERSION_STRING QMK_KEYBOARD "/" QMK_KEYMAP " @ " QMK_VERSION
+#define SHINE_MIN 0
+#define SHINE_MAX 0xFF
+#define SHINE_FADE 600
+
+static uint8_t  shine_count = 0;
+static uint16_t shine_timer = 0;
+
+void keyboard_post_init_user(void) { shine_timer = timer_read(); }
+
+void matrix_scan_user(void) {
+    if (timer_elapsed(shine_timer) >= SHINE_FADE) {
+        shine_timer += SHINE_FADE;
+        rgblight_sethsv_noeeprom(rgblight_get_hue(), rgblight_get_sat(), shine_count);
+        if (shine_count > SHINE_MIN) {
+            shine_count -= 1;
+        }
+    }
+}
+
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     if (record->event.pressed) {
         switch (keycode) {
             case VRSN:
-                SEND_STRING(QMK_KEYBOARD "/" QMK_KEYMAP " @ " QMK_VERSION);
+                SEND_STRING(VERSION_STRING);
                 return false;
+            case SHINE_H:
+                shine_count = SHINE_MAX;
+                return false;
+            case SHINE_L:
+                shine_count = SHINE_MIN;
+                return false;
+        }
+        if (shine_count < SHINE_MAX) {
+            shine_count += 1;
         }
     }
     return true;
 }
 
-// Runs whenever there is a layer state change.
 layer_state_t layer_state_set_user(layer_state_t state) {
-    ergodox_board_led_off();
-    ergodox_right_led_1_off();
-    ergodox_right_led_2_off();
-    ergodox_right_led_3_off();
-
     uint8_t layer = biton32(state);
     switch (layer) {
         case L_BASE:
-            rgblight_update_dword(rgblight_read_dword());
+            ergodox_right_led_1_off();
+            ergodox_right_led_2_off();
+            ergodox_right_led_3_off();
             break;
         case L_NUM:
             ergodox_right_led_1_on();
-            rgblight_update_dword(rgblight_read_dword());
+            ergodox_right_led_2_off();
+            ergodox_right_led_3_off();
             break;
         case L_FUNC:
+            ergodox_right_led_1_off();
             ergodox_right_led_2_on();
-            rgblight_update_dword(rgblight_read_dword());
+            ergodox_right_led_3_off();
             break;
         case L_NPAD:
+            ergodox_right_led_1_off();
+            ergodox_right_led_2_off();
             ergodox_right_led_3_on();
-            rgblight_setrgb(0x00, 0x00, 0xFF);
             break;
         default:
             break;
     }
-
     return state;
 };
