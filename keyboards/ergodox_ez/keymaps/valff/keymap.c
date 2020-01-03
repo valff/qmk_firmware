@@ -4,13 +4,13 @@
 #define L_BASE 0
 /*
  * ┌────────┬──────┬──────┬──────┬──────┬──────┬──────┐          ┌──────┬──────┬──────┬──────┬──────┬──────┬────────┐
- * │   [    │  ~   │  &   │  =   │  |   │  $   │ Del  │          │Insert│  \   │  :   │  /   │  *   │  %   │   ]    │
+ * │   [    │  ~   │  &   │  =   │  |   │  $   │ Esc  │          │Insert│  \   │  :   │  /   │  *   │  %   │   ]    │
  * ├────────┼──────┼──────┼──────┼──────┼──────┼──────┤          ├──────┼──────┼──────┼──────┼──────┼──────┼────────┤
  * │   {    │  Q   │  W   │  F   │  P   │  B   │      │          │      │  J   │  L   │  U   │  Y   │  ,   │   }    │
- * ├────────╆━━━━━━╈━━━━━━╈━━━━━━╈━━━━━━╅──────┤ Esc  │          │Enter ├──────╆━━━━━━╈━━━━━━╈━━━━━━╈━━━━━━╅────────┤
+ * ├────────╆━━━━━━╈━━━━━━╈━━━━━━╈━━━━━━╅──────┤ Tab  │          │Enter ├──────╆━━━━━━╈━━━━━━╈━━━━━━╈━━━━━━╅────────┤
  * │   (    ┃  A   ┃  R   ┃  S   ┃  T   ┃  G   ├──────┤          ├──────┤  M   ┃  N   ┃  E   ┃  I   ┃  O   ┃   )    │
  * ├────────╄━━━━━━╇━━━━━━╇━━━━━━╇━━━━━━╃──────┤      │          │      ├──────╄━━━━━━╇━━━━━━╇━━━━━━╇━━━━━━╃────────┤
- * │   <    │  Z   │  X   │  C   │  D   │  V   │ Tab  │          │ BkSp │  K   │  H   │  ;   │  '   │  .   │   >    │
+ * │   <    │  Z   │  X   │  C   │  D   │  V   │ Del  │          │ BkSp │  K   │  H   │  ;   │  '   │  .   │   >    │
  * └─┬──────┼──────┼──────┼──────┼──────┼──────┴──────┘          └──────┴──────┼──────┼──────┼──────┼──────┼──────┬─┘
  *   │  @   │  ?   │  `   │  #   │  "   │                                      │  _   │  -   │  +   │  !   │  ^   │
  *   └──────┴──────┴──────┴──────┴──────┘                                      └──────┴──────┴──────┴──────┴──────┘
@@ -91,10 +91,10 @@ enum custom_keycodes { VRSN = SAFE_RANGE, SHINE_H, SHINE_L };
 /* clang-format off */
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     [L_BASE] = LAYOUT_ergodox(
-        KC_LBRC , KC_TILD , KC_AMPR , KC_EQL  , KC_PIPE , KC_DLR     , KC_DELT   ,
-        KC_LCBR , KC_Q    , KC_W    , KC_F    , KC_P    , KC_B       , KC_ESC    ,
+        KC_LBRC , KC_TILD , KC_AMPR , KC_EQL  , KC_PIPE , KC_DLR     , KC_ESC    ,
+        KC_LCBR , KC_Q    , KC_W    , KC_F    , KC_P    , KC_B       , KC_TAB    ,
         KC_LPRN , KC_A    , KC_R    , KC_S    , KC_T    , KC_G       ,
-        KC_LABK , KC_Z    , KC_X    , KC_C    , KC_D    , KC_V       , KC_TAB    ,
+        KC_LABK , KC_Z    , KC_X    , KC_C    , KC_D    , KC_V       , KC_DELT   ,
         KC_AT   , KC_QUES , KC_GRV  , KC_HASH , KC_DQUO ,
                                                           MO(L_FUNC) , MO(L_NUM) ,
                                                                        KC_RSFT   ,
