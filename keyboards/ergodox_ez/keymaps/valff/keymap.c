@@ -172,7 +172,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 #define VERSION_STRING QMK_KEYBOARD "/" QMK_KEYMAP " @ " QMK_VERSION
 #define SHINE_MIN 0
 #define SHINE_MAX 0xFF
-#define SHINE_FADE 600
+#define SHINE_FADE 0x800
 
 static uint8_t  shine_count = 0;
 static uint16_t shine_timer = 0;
