@@ -4,7 +4,7 @@
 #define L_BASE 0
 /*
  * ┌────────┬──────┬──────┬──────┬──────┬──────┬──────┐          ┌──────┬──────┬──────┬──────┬──────┬──────┬────────┐
- * │   [    │  ~   │  &   │  =   │  |   │  !   │ Esc  │          │Insert│  \   │  :   │  /   │  *   │  %   │   ]    │
+ * │   [    │  ~   │  &   │  =   │  !   │  |   │ Esc  │          │Insert│  \   │  :   │  /   │  *   │  %   │   ]    │
  * ├────────┼──────┼──────┼──────┼──────┼──────┼──────┤          ├──────┼──────┼──────┼──────┼──────┼──────┼────────┤
  * │   {    │  Q   │  W   │  F   │  P   │  B   │      │          │      │  J   │  L   │  U   │  Y   │  ,   │   }    │
  * ├────────╆━━━━━━╈━━━━━━╈━━━━━━╈━━━━━━╅──────┤ Del  │          │ BkSp ├──────╆━━━━━━╈━━━━━━╈━━━━━━╈━━━━━━╅────────┤
@@ -12,7 +12,7 @@
  * ├────────╄━━━━━━╇━━━━━━╇━━━━━━╇━━━━━━╃──────┤      │          │      ├──────╄━━━━━━╇━━━━━━╇━━━━━━╇━━━━━━╃────────┤
  * │   <    │  Z   │  X   │  C   │  D   │  V   │ Tab  │          │Enter │  K   │  H   │  ;   │  '   │  .   │   >    │
  * └─┬──────┼──────┼──────┼──────┼──────┼──────┴──────┘          └──────┴──────┼──────┼──────┼──────┼──────┼──────┬─┘
- *   │  ^   │  @   │  `   │  ?   │  "   │                                      │  _   │  -   │  +   │  #   │  $   │
+ *   │  ^   │  @   │  ?   │  `   │  "   │                                      │  _   │  -   │  +   │  #   │  $   │
  *   └──────┴──────┴──────┴──────┴──────┘                                      └──────┴──────┴──────┴──────┴──────┘
  *                                        ┌──────┬──────┐      ┌──────┬──────┐
  *                                        │L_FUNC│L_NUM │      │PrnScr│L_FUNC│
@@ -25,7 +25,7 @@
 #define L_NUM 1
 /*
  * ┌────────┬──────┬──────┬──────┬──────┬──────┬──────┐          ┌──────┬──────┬──────┬──────┬──────┬──────┬────────┐
- * │   #[   │  #3  │  #7  │  #=  │  #\  │  #1  │      │          │      │      │      │      │      │      │   #]   │
+ * │   #[   │  #3  │  #7  │  #=  │  #1  │  #\  │      │          │      │      │      │      │      │      │   #]   │
  * ├────────┼──────┼──────┼──────┼──────┼──────┼──────┤          ├──────┼──────┼──────┼──────┼──────┼──────┼────────┤
  * │   #5   │  #Q  │ PgUp │  Up  │ PgDn │  #B  │      │          │      │  #J  │  7   │  8   │  9   │      │   #8   │
  * ├────────╆━━━━━━╈━━━━━━╈━━━━━━╈━━━━━━╅──────┤      │          │      ├──────╆━━━━━━╈━━━━━━╈━━━━━━╈━━━━━━╅────────┤
@@ -33,7 +33,7 @@
  * ├────────╄━━━━━━╇━━━━━━╇━━━━━━╇━━━━━━╃──────┤      │          │      ├──────╄━━━━━━╇━━━━━━╇━━━━━━╇━━━━━━╃────────┤
  * │   #,   │  #Z  │  #X  │  #C  │  #D  │  #V  │      │          │      │  #K  │  1   │  2   │  3   │      │   #.   │
  * └─┬──────┼──────┼──────┼──────┼──────┼──────┴──────┘          └──────┴──────┼──────┼──────┼──────┼──────┼──────┬─┘
- *   │  #6  │  #2  │  #`  │  #/  │  #'  │                                      │      │      │      │      │  #4  │
+ *   │  #6  │  #2  │  #/  │  #`  │  #'  │                                      │      │      │      │      │  #4  │
  *   └──────┴──────┴──────┴──────┴──────┘                                      └──────┴──────┴──────┴──────┴──────┘
  *                                        ┌──────┬──────┐      ┌──────┬──────┐
  *                                        │L_NPAD│      │      │ App  │L_NPAD│
@@ -91,14 +91,14 @@ enum custom_keycodes { VRSN = SAFE_RANGE, SHINE_H, SHINE_L };
 /* clang-format off */
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     [L_BASE] = LAYOUT_ergodox(
-        KC_LBRC , KC_TILD , KC_AMPR , KC_EQL  , KC_PIPE , KC_EXLM    , KC_ESC    ,
-        KC_LCBR , KC_Q    , KC_W    , KC_F    , KC_P    , KC_B       , KC_DELT   ,
-        KC_LPRN , KC_A    , KC_R    , KC_S    , KC_T    , KC_G       ,
-        KC_LABK , KC_Z    , KC_X    , KC_C    , KC_D    , KC_V       , KC_TAB    ,
-        KC_CIRC , KC_AT   , KC_GRV  , KC_QUES , KC_DQUO ,
-                                                          MO(L_FUNC) , MO(L_NUM) ,
-                                                                       KC_RSFT   ,
-                                                KC_LSFT , KC_LCTL    , KC_LGUI   ,
+        KC_LBRC , KC_TILD , KC_AMPR , KC_EQL , KC_EXLM , KC_PIPE    , KC_ESC    ,
+        KC_LCBR , KC_Q    , KC_W    , KC_F   , KC_P    , KC_B       , KC_DELT   ,
+        KC_LPRN , KC_A    , KC_R    , KC_S   , KC_T    , KC_G       ,
+        KC_LABK , KC_Z    , KC_X    , KC_C   , KC_D    , KC_V       , KC_TAB    ,
+        KC_CIRC , KC_AT   , KC_QUES , KC_GRV , KC_DQUO ,
+                                                         MO(L_FUNC) , MO(L_NUM) ,
+                                                                      KC_RSFT   ,
+                                               KC_LSFT , KC_LCTL    , KC_LGUI   ,
 
         KC_INS  , KC_BSLS    , KC_COLN , KC_SLSH , KC_ASTR , KC_PERC , KC_RBRC ,
         KC_BSPC , KC_J       , KC_L    , KC_U    , KC_Y    , KC_COMM , KC_RCBR ,
@@ -110,14 +110,14 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         KC_SPC  , KC_LALT    , MO(L_NUM)
     ),
     [L_NUM] = LAYOUT_ergodox(
-        RGUI(KC_LBRC) , RGUI(KC_3) , RGUI(KC_7)    , RGUI(KC_EQL)  , RGUI(KC_BSLS) , RGUI(KC_1) , _______ ,
-        RGUI(KC_5)    , RGUI(KC_Q) , KC_PGUP       , KC_UP         , KC_PGDN       , RGUI(KC_B) , _______ ,
-        RGUI(KC_9)    , KC_HOME    , KC_LEFT       , KC_DOWN       , KC_RGHT       , KC_END     ,
-        RGUI(KC_COMM) , RGUI(KC_Z) , RGUI(KC_X)    , RGUI(KC_C)    , RGUI(KC_D)    , RGUI(KC_V) , _______ ,
-        RGUI(KC_6)    , RGUI(KC_2) , RGUI(KC_GRV)  , RGUI(KC_SLSH) , RGUI(KC_QUOT) ,
-                                                                                     MO(L_NPAD) , _______ ,
-                                                                                                  _______ ,
-                                                                     _______       , _______    , _______ ,
+        RGUI(KC_LBRC) , RGUI(KC_3) , RGUI(KC_7)    , RGUI(KC_EQL) , RGUI(KC_1)    , RGUI(KC_BSLS) , _______ ,
+        RGUI(KC_5)    , RGUI(KC_Q) , KC_PGUP       , KC_UP        , KC_PGDN       , RGUI(KC_B)    , _______ ,
+        RGUI(KC_9)    , KC_HOME    , KC_LEFT       , KC_DOWN      , KC_RGHT       , KC_END        ,
+        RGUI(KC_COMM) , RGUI(KC_Z) , RGUI(KC_X)    , RGUI(KC_C)   , RGUI(KC_D)    , RGUI(KC_V)    , _______ ,
+        RGUI(KC_6)    , RGUI(KC_2) , RGUI(KC_SLSH) , RGUI(KC_GRV) , RGUI(KC_QUOT) ,
+                                                                                    MO(L_NPAD)    , _______ ,
+                                                                                                    _______ ,
+                                                                    _______       , _______       , _______ ,
 
         _______ , _______    , _______ , _______ , _______ , _______    , RGUI(KC_RBRC) ,
         _______ , RGUI(KC_J) , KC_7    , KC_8    , KC_9    , _______    , RGUI(KC_8)    ,
